@@ -35,7 +35,7 @@
 
   - Row Oriented Database
     - 로우 단위로 데이터 저장
-    - write가 쉬움
+    - Auto Increment를 해도 물리적으로 순서대로 저장되지 않음
     - 중간 데이터를 삭제하면 새 데이터 빈 자리에 넣음
       - 인덱스 처리를 잘 하자
     - ex) MySQL
@@ -43,4 +43,35 @@
     - 컬럼 단위로 데이터 저장
     - read가 쉬움
     - ex) big query
+  - CAP Theorem
+    - 어떤 DB를 선택할지
+    - 3개를 다 챙길 수는 없다
+    - Consistency
+      - 금융데이터에 중요
+      - 언제나 같은 값
+    - Partition-Tolerance
+      - 데이터량이 엄청 많을 때
+      - 분산해도 되는지
+    - Availability
+      - 가용성
+    - Netfilix - MySQL : Consitetncy를 낮추고 Availability를 높임
+    - Instagram - : Availability 중요
+  - 면접 질문 - RDBMS vs NoSQL
+    - RDBMS
+      - 스키마 수정에 불리
+      - 데이터가 보장됨
+      - 스키마가 확실
+      - Scale up 가능 : 분산 저장 안하고 중복이 안됨 - Scale out X
+        - Scale out은 많은 양의 데이터를 흩뿌려서 저장할 수 있음
+      - SQL을 통해 쉽게 데이터를 다룸
+    - NoSQL
+      - Scale Out에 용이함
+      - 빠른 Read, write
+
+  - Redis, MongoDB어떨 때 사용?
+    - Redis: 타임아웃, 관계 등 설정
+    - MongoDB: 로그
+  - read와 query는 같은 맥락
+  - integrity, consistency 차이
+    - consistency를 integrity가 포함
 
