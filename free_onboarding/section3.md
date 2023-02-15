@@ -1,0 +1,70 @@
+## MySQL 기본개념
+
+
+
+- 쿼리 실행 절차
+
+  - 불필요한 조건 제거 및 복잡한 연산 단순화
+
+  - join의 경우 read 순서 결정
+
+  - 각 테이블 별 조건과 인덱스 통계정보를 활용하여 사용할 인덱스 결정
+
+  - 임시 테이블에 데이터를 두고 한 번 더 가공할지 결정
+
+- SELECT 쿼리 실행순서
+  - FROM / JOIN → WHERE → GROUP BY → HAVING → ORDER BY → LIMIT
+- Distinct
+  - Tuple이다
+
+
+
+- join이란?
+
+  - 여러 테이블에서 데이터를 가져오는 방법
+
+  - join의 종류
+
+    1. inner join
+
+       - 두 테이블 모두에 값을 가지고 있는 경우
+       - 두 테이블 모두에 값이 있어야만 표시됨
+
+    2. left join
+
+       - left table에서 값을 모두 가져오고 right table은 match가 있는 경우에만 가져옴
+
+       - left join을 시도했기 때문에, right table에서 없는 값들이 NULL로 표시된다
+
+    3. right join
+
+       - right table에서 값을 모두 가져오고 left table은 match가 없는 경우에만 가져옴
+
+    4. full join
+
+       - table 전체를 다 봄
+
+    5. CROSS JOIN
+
+       - 곱집합 같은 느낌
+
+    6. SELF JOIN
+
+       - 본인 테이블을 대상으로 CROSS JOIN
+
+1. subquery란?
+   1. query안에 query문을 추가하는 것
+      1. 먼저 돌아가고, 여기서 돌아간 값을 밖에있는(outer, parent) 쿼리가 사용한다
+      2. select, from, where 에 사용
+   2. SELECT
+   3. FROM
+   4. WHERE
+2. SQL 내장함수란?
+   1. 단어 그대로 “기본으로 제공하는 함수”
+   2. 다양한 종류들이 있지만 그룹함수(aggregation)에 대해서만 짚고감
+      1. 실제로 SQL 내장함수들 중 면접에서 제일 많이 물어봄
+         - COUNT(), MAX(), MIN(), AVG()
+         - 여러 레코드의 값을 병합해서 하나의 값으로 만들어냄
+         - GROUP BY와 같이 사용됨.
+      2. Aggregation은 언제 실행되는지??
+   3. CASE WHEN … THEN … END
